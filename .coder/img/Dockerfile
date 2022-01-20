@@ -5,9 +5,23 @@ FROM codercom/enterprise-base:ubuntu
 
 USER root
 
-# Install programs
+# Install Java 11 and Bazel
 RUN apt-get update && apt-get install -y apt-transport-https curl software-properties-common git gcc gnupg2 g++ default-jdk python-dev zip wget vim
 RUN wget https://github.com/bazelbuild/bazel/releases/download/4.1.0/bazel-4.1.0-installer-linux-x86_64.sh -O ./bazel-installer.sh && chmod 755 ./bazel-installer.sh
 RUN ./bazel-installer.sh
 
+# Install golang
+RUN curl -L "https://dl.google.com/go/go1.17.1.linux-amd64.tar.gz" | tar -C /usr/local -xzvf -
+ENV GOROOT /usr/local/go
+ENV PATH $PATH:$GOROOT/bin
+ENV GOPATH /home/coder/go
+ENV GOBIN $GOPATH/bin
+ENV PATH $PATH:$GOBIN
+
+# Install Yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+RUN DEBIAN_FRONTEND="noninteractive" apt-get update && apt-get install -y yarn
+
 USER coder
+
