@@ -20,7 +20,7 @@ workspace:
       value:
         - name: "Clone the git repository, if it doesn't exist"
           env:
-            GIT_REMOTE: https://github.com/bpmct/bookshop-monorepo.git
+            GIT_REMOTE: git@github.com:bpmct/bookshop-monorepo.git
             CLONE_TO: /home/coder/bookshop-monorepo
           command: |
             # Check if the project directory already exists 
