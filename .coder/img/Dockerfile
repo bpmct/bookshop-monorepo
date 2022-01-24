@@ -32,6 +32,21 @@ RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
 RUN apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 RUN apt-get update && sudo apt-get install terraform
 
+# Install AWS CLI
+RUN pip3 install awscli
+
+# Dependencies for store-api
+RUN apt-get install -y zstd 
+
+# Postgres database running in workspace
+RUN apt-get -y install postgresql postgresql-contrib
+
+# Start temporary postgres server to make some changes during build process
+# If you are building with sysbox, you can just leverage systemctl
+RUN sudo -u postgres ./pg_ctl -D /etc/postgresql/12/main/ start
+RUN sudo -u postgres createuser -s $USER
+RUN createdb bookstore_api
+RUN sudo -u postgres sed -i 's/host    all             all             127.0.0.1\/32            md5/host    all             all             127.0.0.1\/32            trust/g' /etc/postgresql/10/main/pg_hba.conf
+RUN sudo -u postgres ./pg_ctl -D /etc/postgresql/12/main/ stop
 
 USER coder
-
