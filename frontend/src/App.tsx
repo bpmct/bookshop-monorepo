@@ -12,20 +12,27 @@ import Typography from '@mui/material/Typography';
 
 function App() {
 
+  if (!process.env.REACT_APP_BACKEND_URL) {
+    console.error("Missing $REACT_APP_BACKEND_URL environment variable")
+  }
+
   const getBooks = () => {
-    fetch('https://8080--bookshop-wip-stable--benpotter.stable.cdr.dev/v1/books')
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/v1/books`)
       .then(response => response.json())
-      .then(data => setCards(data));
+      .then(data => setCards(data))
+      .catch((err) => {
+        console.error("error fetching books", err)
+      });
   }
 
   const deleteBook = (id: string) => {
-    fetch(`https://8080--bookshop-wip-stable--benpotter.stable.cdr.dev/v1/books/${id}`, { method: 'DELETE' })
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/v1/books/${id}`, { method: 'DELETE' })
       .then(() => {
         let newCards = cards;
-
         setCards(newCards.filter((book: any) => book.id != id));
-
-      });
+      }).catch((err) => {
+        console.error("error deleting book", err)
+      });;
   }
 
   // Grab a list of movies

@@ -1,3 +1,12 @@
 {
-    "files.autoSave": "onFocusChange"
+    "files.autoSave": "onFocusChange",
+    "activitusbar.inactiveColour": "extensionButton.prominentForeground",
+    "activitusbar.views": [
+        {
+            "name": "task.frontend",
+            "label": "Run frontend",
+            "codicon": "tools",
+            "tooltip": "Build project"
+        }
+    ]
 }

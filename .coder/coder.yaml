@@ -41,9 +41,13 @@ workspace:
           command: curl https://gist.githubusercontent.com/bpmct/b48b99007284444eea94fe9e96d4a329/raw/set_first_dir.sh | sh
           env:
             PROJECT_FOLDER: /home/coder/bookshop-monorepo
-  # dev-urls:
-  #   value:
-  #     - name: web
-  #       port: 8000
-  #       scheme: http
-  #       access: private
+  dev-urls:
+    value:
+      - name: frontend
+        port: 3000
+        scheme: http
+        access: public
+      - name: backend
+        port: 8080
+        scheme: http
+        access: public

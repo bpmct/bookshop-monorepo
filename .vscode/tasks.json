@@ -1,0 +1,20 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "frontend",
+            "type": "shell",
+            "command": "cd $HOME/bookshop-monorepo/frontend && REACT_APP_BACKEND_URL=$(coder urls ls $CODER_WORKSPACE_NAME --output json | jq -r '.[] | select(.port==8080).url') yarn start",
+            "windows": {
+                "command": ".\\scripts\\test.cmd"
+            },
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}
