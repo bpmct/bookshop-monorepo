@@ -67,4 +67,7 @@ RUN yarn global add @bazel/ibazel
 # Scripts to run on workspace startup
 COPY ./configure /coder/configure
 
+# Install jq for start script
+RUN sudo apt-get install -y jq
+
 USER coder
