@@ -6,13 +6,13 @@ workspace:
   specs:
     kubernetes:
       cpu:
-        value: 4
+        value: 8
       image:
         value: bencdr/bookshop-coder:latest # Rename to the same as your image
       container-based-vm:
         value: true
       memory:
-        value: 4
+        value: 16
       disk:
         value: 20
   configure:
