@@ -5,8 +5,20 @@
         {
             "name": "task.frontend",
             "label": "Run frontend",
-            "codicon": "tools",
-            "tooltip": "Build project"
+            "codicon": "globe",
+            "tooltip": "Run frontend"
+        },
+        {
+            "name": "task.backend",
+            "label": "Run backend",
+            "codicon": "circuit-board",
+            "tooltip": "Run backend"
+        },
+        {
+            "name": "task.reset-db",
+            "label": "Reset DB",
+            "codicon": "database",
+            "tooltip": "Reset DB"
         }
     ]
 }

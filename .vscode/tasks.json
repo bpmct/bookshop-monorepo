@@ -7,10 +7,24 @@
             "label": "frontend",
             "type": "shell",
             "command": "cd $HOME/bookshop-monorepo/frontend && REACT_APP_BACKEND_URL=$(coder urls ls $CODER_WORKSPACE_NAME --output json | jq -r '.[] | select(.port==8080).url') yarn start",
-            "windows": {
-                "command": ".\\scripts\\test.cmd"
-            },
-            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "backend",
+            "type": "shell",
+            "command": "bazel run //store-api/src/main/java/com/book/store/api:deployable",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "reset-db",
+            "type": "shell",
+            "command": "sudo -u postgres psql bookstore_api -c \"DROP TABLE book, author, user_, review, user_book_tag, book_author\" && echo \"\n\nDropped tables in the Postgres DB. You'll need to re-run the backend to re-generate them.\"",
             "presentation": {
                 "reveal": "always",
                 "panel": "new"
