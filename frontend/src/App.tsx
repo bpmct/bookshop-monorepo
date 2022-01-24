@@ -29,7 +29,7 @@ function App() {
     fetch(`${process.env.REACT_APP_BACKEND_URL}/v1/books/${id}`, { method: 'DELETE' })
       .then(() => {
         let newCards = cards;
-        setCards(newCards.filter((book: any) => book.id != id));
+        setCards(newCards.filter((book: any) => book.id !== id));
       }).catch((err) => {
         console.error("error deleting book", err)
       });;
