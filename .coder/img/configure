@@ -1,1 +1,3 @@
 #!/bin/sh
+
+/var/tmp/coder/code-server/bin/code-server --install-extension gruntfuggly.activitusbar
