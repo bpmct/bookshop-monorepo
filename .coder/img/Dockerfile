@@ -61,7 +61,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get update && apt-get install -y yarn
 
 # Add global yarn packages
 ENV PATH=$PATH:/home/coder/.yarn/bin
-yarn global add @bazel/ibazel
+RUN yarn global add @bazel/ibazel
 
 # Scripts to run on workspace startup
 COPY ./configure /coder/configure
