@@ -47,6 +47,9 @@ RUN /usr/lib/postgresql/12/bin/pg_ctl -D /etc/postgresql/12/main/ start && \
 # Disable auto-open of browser for frontend 
 ENV BROWSER=none
 
+# Enable hot reloading with dev URLs
+ENV WDS_SOCKET_PORT=443
+
 # Install Node
 RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y nodejs
