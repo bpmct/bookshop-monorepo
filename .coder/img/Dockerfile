@@ -43,10 +43,10 @@ RUN apt-get -y install postgresql postgresql-contrib
 
 # Start temporary postgres server to make some changes during build process
 # If you are building with sysbox, you can just leverage systemctl
-RUN sudo -u postgres ./pg_ctl -D /etc/postgresql/12/main/ start
+RUN sudo -u postgres /usr/lib/postgresql/12/bin/pg_ctl -D /etc/postgresql/12/main/ start
 RUN sudo -u postgres createuser -s $USER
 RUN createdb bookstore_api
 RUN sudo -u postgres sed -i 's/host    all             all             127.0.0.1\/32            md5/host    all             all             127.0.0.1\/32            trust/g' /etc/postgresql/10/main/pg_hba.conf
-RUN sudo -u postgres ./pg_ctl -D /etc/postgresql/12/main/ stop
+RUN sudo -u postgres /usr/lib/postgresql/12/bin/pg_ctl -D /etc/postgresql/12/main/ stop
 
 USER coder
