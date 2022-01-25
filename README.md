@@ -1,6 +1,6 @@
 # bookshop-monorepo
 
-A sample monorepo with multiple services for running a Bookshop's inventory, including:
+A sample monorepo with multiple services for running a bookshop inventory, including:
 - REST API (written in Spring) 
 - Database (powered by Postgres)
 - CLI (written in Golang)
