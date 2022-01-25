@@ -44,6 +44,9 @@ function App() {
 
   return (
     <div className="App">
+      <Box sx={{ m: 2, textAlign: "left" }}>
+        <h1>Books</h1>
+      </Box>
       {cards.map((book: any, index) => {
         return <Box key={index} sx={{ m: 2, maxWidth: "500px" }}>
           <Card variant="outlined">
