@@ -191,41 +191,6 @@ build_external_workspace(name = "3rdparty_jvm")
 
 scala_deps()
 
-#######################################
-# TYPESCRIPT / NODEJS SUPPORT
-#######################################
-
-rules_nodejs_version = "1.7.0"
-
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
-http_archive(
-    name = "build_bazel_rules_nodejs",
-    sha256 = "84abf7ac4234a70924628baa9a73a5a5cbad944c4358cf9abdb4aab29c9a5b77",
-    urls = [
-        "https://github.com/bazelbuild/rules_nodejs/releases/download/{version}/rules_nodejs-{version}.tar.gz".format(
-            version = rules_nodejs_version,
-        ),
-    ],
-)
-
-load("@build_bazel_rules_nodejs//:index.bzl", "yarn_install")
-
-yarn_install(
-    name = "npm",
-    package_json = "//3rdparty/typescript:package.json",
-    yarn_lock = "//3rdparty/typescript:yarn.lock",
-)
-
-load("@npm//:install_bazel_dependencies.bzl", "install_bazel_dependencies")
-
-install_bazel_dependencies()
-
-# Set up TypeScript toolchain
-load("@npm_bazel_typescript//:index.bzl", "ts_setup_workspace")
-
-ts_setup_workspace()
-
 ######################
 # CODE DISTRIBUTION
 ######################
