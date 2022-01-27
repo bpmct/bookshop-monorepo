@@ -17,11 +17,30 @@ A sample monorepo with multiple services for running a bookshop inventory, inclu
 
 ### Or (manual):
 
-- Clone the repository on your local machine
-- Install a Postgres server, run [this init script](./infrastructure/aws//store-api/userdata.tpl)
-- [**Install Bazel**](https://docs.bazel.build/versions/master/install.html) (Currently supporting ~= `4.x.x`)
-- **Python 2 or 3**. Should only be required to [do some bootstrapping under-the-hood](https://github.com/bazelbuild/bazel/issues/8446).
-- [**`yarn`**](https://yarnpkg.com/) or [**`npm`**](https://www.npmjs.com/) for the NodeJS and Typescript code
+#### Clone the repository on your local machine
+
+- Ensure you have SSH and GPG keys set up.
+
+```sh
+ssh git@github.com:bpmct/bookshop-monorepo.git
+```
+
+#### Install a Postgres server
+
+Run [this init script](./infrastructure/aws//store-api/userdata.tpl). Ensure you have `bookstore` database and there is no password for the `postgres` user
+
+#### Install Bazel
+
+Follow the [Bazel docs](https://docs.bazel.build/versions/master/install.html) to install on your machine. You MUST have version `4.10.0`
+
+#### Python 3.10
+
+#### NodeJS and Yarn
+
+You need NodeJS 16.x and yarn installed on your machine
+
+#### DevOps tools
+
 - Install `aws-cli`, `terraform`, `zstd` on your machine
 
 ## Credits
