@@ -13,7 +13,7 @@ A sample monorepo with multiple services for running a bookshop inventory, inclu
 
 ## Set up development environment:
 
-[![Open in Coder](https://cdn.coder.com/embed-button.svg)](https://stable.cdr.dev/wac/build?template_oauth_service=github&template_url=https://github.com/bpmct/bookshop-monorepo&template_ref=main&template_filepath=.coder/coder.yaml)
+[![Open in Coder](https://cdn.coder.com/embed-button.svg)](https://sandbox.coder.com/wac/build?template_oauth_service=github&template_url=https://github.com/bpmct/bookshop-monorepo&template_ref=main&template_filepath=.coder/coder.yaml)
 
 ### Or (manual):
 
