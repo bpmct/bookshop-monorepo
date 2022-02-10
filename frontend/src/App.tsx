@@ -17,7 +17,7 @@ function App() {
   }
 
   const getBooks = () => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/v1/books`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}v1/books`)
       .then(response => response.json())
       .then(data => setCards(data))
       .catch((err) => {
