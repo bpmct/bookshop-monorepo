@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `yarn start`
+### `REACT_APP_BACKEND_URL=$(coder urls ls $CODER_WORKSPACE_NAME --output json | jq -r '.[] | select(.port==8080).url') yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.

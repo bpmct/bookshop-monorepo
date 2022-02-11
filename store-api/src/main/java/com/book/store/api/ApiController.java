@@ -36,7 +36,7 @@ public class ApiController {
 
     @RequestMapping("/")
     public String index() {
-        return "👋 Greetings from AntiLibrary! An online world of reading built with Bazel.";
+        return "👋 Hello from the Coder workshop!";
     }
 
     /*
