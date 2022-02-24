@@ -52,7 +52,7 @@ ENV BROWSER=none
 ENV WDS_SOCKET_PORT=443
 
 # Install Node
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y nodejs
 
 # Install Yarn
