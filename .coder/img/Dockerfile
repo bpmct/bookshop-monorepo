@@ -81,7 +81,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y \
 RUN mkdir -p /opt/idea
 RUN curl -L "https://download.jetbrains.com/product?code=IIC&latest&distribution=linux" | tar -C /opt/idea --strip-components 1 -xzvf -
 
-# Add a binary to the PATH that points to the intellij startup script.
+# Add a binary to the PATH that points to the intellij startup script
 RUN ln -s /opt/idea/bin/idea.sh /usr/bin/intellij-idea-community
 
 USER coder
